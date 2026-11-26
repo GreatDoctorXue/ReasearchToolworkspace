@@ -1,5 +1,6 @@
 # Local research runs
-/runs/
+/runs/*
+!/runs/README.md
 
 # Local credentials and environments
 .env
