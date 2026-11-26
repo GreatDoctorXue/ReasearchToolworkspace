@@ -1,27 +1,16 @@
 # ReasearchToolworkspace
-for Xueyuqin do reasearch
 
-## 交给 AI 使用
+围绕一个研究问题找资料、整理文献、核对证据。把仓库交给能读取文件的模型，请它先读 [AGENTS.md](AGENTS.md)，然后像和研究同伴交流一样提问。
 
-已有 Harness / Loop 的 Agent（如 Codex、Claude Code、Gemini CLI）使用自身的执行循环与任务管理，从 [AGENTS.md](AGENTS.md) 和 [工具目录](tools/README.md) 进入。可以直接发送下面这句话。
+| 现在想做什么 | 可以这样问 |
+| --- | --- |
+| 摸方向 | “我刚接触这个领域，哪些术语容易混淆？先读哪几篇，分别能解决什么问题？” |
+| 找资料 | “这篇综述引用的数字最早出自哪里？帮我找到原始研究和具体表格。” |
+| 读文献 | “帮我读这篇论文的表 2，解释对照组、单位和作者能得出的结论。” |
+| 做综合 | “比较手头这五篇论文。哪些结果可以放在一起，哪些差异来自实验条件？” |
 
-```text
-请读取仓库根目录的 AGENTS.md 和 tools/README.md，按需加载工具说明。
-使用你自身的 Harness / Loop。我的任务是「填写你的研究主题和目标」。
-```
+已有论文、笔记或出处可以直接作为起点。单个问题可直接在对话里回答。持续课题的资料、索引和报告保存在本地 `runs/<课题名>/`，该目录由 Git 忽略。
 
-需要仓库提供执行流程时，再选择 [可选 Harness 指南](harness/README.md)，其中包含循环、任务记录与续跑约定。
-Codex、Claude Code、Gemini CLI 分别有对应的仓库入口文件。其他平台可显式读取或上传上述文档。
-执行脚本需要平台提供文件读写、Python 和相应网络能力。
+需要完整的文献库、研究现状报告或科研汇报 PPT 时，工作台支持从检索到本地交付的 P0–P9 流程。[工具目录](tools/README.md) · [原版使用说明](tools/survey-workbench/README.md)
 
-## 工具索引
-
-| 工具 | 用途 | 说明 |
-| --- | --- | --- |
-| `survey-workbench` | 整理文献、生成调研报告与科研汇报 PPT | [使用与验收](tools/survey-workbench/USAGE.md) · [中文说明](tools/survey-workbench/README.md) · [English](tools/survey-workbench/README_EN.md) |
-
-## 工作区管理
-
-- 每个工具放在 `tools/<工具名>/`，保留自身的说明、脚本、模板和资源，并在上面的索引登记。
-- 本地调研资料、生成的报告和其他运行产物统一存放在根目录的 `runs/<课题名>/`，该目录由 Git 忽略。
-- 实际凭据放在本地 `.env`。仓库可以保留 `.env.example` 作为配置样例。
+实际凭据放在本地环境文件，仓库可保留 `.env.example` 作为配置样例。
