@@ -1,0 +1,13 @@
+# Local research runs
+/runs/
+
+# Local credentials and environments
+.env
+.env.*
+!.env.example
+.venv/
+
+# Python and macOS artifacts
+__pycache__/
+*.py[cod]
+.DS_Store
