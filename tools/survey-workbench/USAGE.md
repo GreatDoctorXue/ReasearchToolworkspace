@@ -1,6 +1,7 @@
 # survey-workbench 操作指南
 
-用于文献检索、资料归档、资料库查询、调研报告和基于报告的 PPT。开始前读取 [完整工具规则](../../tools/survey-workbench/SKILL.md)。
+用于文献检索、资料归档、资料库查询、调研报告和基于报告的 PPT。开始前读取 [完整工具规则](SKILL.md)。
+工具规则中的 P0–P9 描述调研业务步骤，由宿主 Agent 调度执行。
 以下 Bash 命令从仓库根目录运行，Windows 环境使用对应的路径和虚拟环境解释器。
 
 ## 路径与环境
@@ -63,7 +64,7 @@ PY="$REPO_ROOT/.venv/bin/python"
 "$PY" "$SCRIPTS/make_report.py" --root "$RUN" --topic "复合材料固化工艺优化"
 ```
 
-PPT 先运行下列命令生成交接材料，再执行 [PPT 引擎规则](../../tools/survey-workbench/ppt_skill/SKILL.md) 和 [调研库交接约定](../../tools/survey-workbench/ppt_skill/SURVEY_INTEGRATION.md)。
+PPT 先运行下列命令生成交接材料，再执行 [PPT 引擎规则](ppt_skill/SKILL.md) 和 [调研库交接约定](ppt_skill/SURVEY_INTEGRATION.md)。
 
 ```bash
 "$PY" "$SCRIPTS/ppt_handoff.py" --root "$RUN"
@@ -91,4 +92,4 @@ PPT 依赖和可选图像后端按引擎说明安装或配置。
   "$RUN/05_报告/研究现状_复合材料固化工艺优化.md"
 ```
 
-校验返回 `PASS` 后执行导出。结束时更新 `TASK.md` 并告知用户实际产物路径、已完成的验证与资料缺口。
+校验返回 `PASS` 后执行导出。按宿主 Agent 的方式记录执行结果，告知用户实际产物路径、已完成的验证与资料缺口。
